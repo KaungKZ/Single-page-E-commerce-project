@@ -6,10 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Emerald</title>
     <link rel="stylesheet" href="css/main.css" />
+    <script defer src="js/main.js"></script>
   </head>
   <body>
     <section id="OS">
-      <!-- Header -->
+      <!-- ==================== Header ======================== -->
       <header>
         <div class="logo">
           <h1>Emerald<span> Online Shopping</span></h1>
@@ -17,16 +18,15 @@
         <div class="menu-bar">
           <div class="cart">
             <img src="images/shopping-cart-solid 1.svg" alt="" />
-            <div class="item-numbers">1</div>
           </div>
           <div class="nav-bar">
             <img src="images/menu.svg" alt="" />
           </div>
         </div>
       </header>
-      <!-- Items -->
+      <!-- ======================== Items ======================= -->
       <div class="items">
-        <div class="item item_1">
+        <div class="item item_1" data-first="true">
           <img src="images/shoe.png" alt="" />
 
           <h2>Adidas men’s running shoe</h2>
@@ -42,7 +42,7 @@
           </div>
         </div>
 
-        <div class="item item_2">
+        <div class="item item_2" data-first="true">
           <img src="images/cup.png" alt="" />
           <h2>Cup</h2>
           <div class="info">
@@ -54,7 +54,7 @@
             <button class="add-to-cart">Add to cart</button>
           </div>
         </div>
-        <div class="item item_3">
+        <div class="item item_3" data-first="true">
           <img src="images/mouse.png" alt="" />
           <h2>Wired mouse</h2>
           <div class="info">
@@ -65,7 +65,7 @@
             <button class="add-to-cart">Add to cart</button>
           </div>
         </div>
-        <div class="item item_4">
+        <div class="item item_4" data-first="true">
           <img src="images/keyboard.png" alt="" />
           <h2>Wired keyboard for office</h2>
           <div class="info">
@@ -76,7 +76,7 @@
             <button class="add-to-cart">Add to cart</button>
           </div>
         </div>
-        <div class="item item_5">
+        <div class="item item_5" data-first="true">
           <img src="images/fan.png" alt="" />
           <h2>Table fan(LG)</h2>
           <div class="info">
@@ -88,7 +88,7 @@
             <button class="add-to-cart">Add to cart</button>
           </div>
         </div>
-        <div class="item item_6">
+        <div class="item item_6" data-first="true">
           <img src="images/hair razor.png" alt="" />
           <h2>Supreme hair razor</h2>
           <div class="info">
@@ -103,7 +103,7 @@
           </div>
         </div>
       </div>
-      <!-- page-trackers -->
+      <!-- ========================== page-trackers =============================== -->
       <div class="page-trackers">
         <svg
           class="left"
@@ -134,18 +134,22 @@
           />
         </svg>
       </div>
-      <!-- Cart-Items -->
+      <!-- =========================== Cart-Items ============================= -->
       <div class="cart-items">
-        <div class="row-title">
-          <h1>Items</h1>
+        <div class="container">
+          <div class="row-header">
+            <h1>Items</h1>
+            <img src="images/close.svg" alt="" class="cart-close" />
+          </div>
+          <div class="row-items"></div>
+          <div class="remove-all"></div>
+          <div class="total">
+            <p>Total: <span class="total-price"> $0</span></p>
+          </div>
+          <div class="purchase">
+            <button class="purchase-btn">Purchase</button>
+          </div>
         </div>
-        <div class="total">
-          <p>Total: <span class="total-price">$0</span></p>
-        </div>
-      </div>
-
-      <div class="purchase">
-        <button class="purchase-btn">Purchase</button>
       </div>
     </section>
   </body>
