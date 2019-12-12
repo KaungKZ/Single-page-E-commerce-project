@@ -1,17 +1,20 @@
 // global variables
+
 const cartOpenBtn = document.querySelector(".cart");
 const cart = document.querySelector(".cart-items");
-const cartCloseBtn = document.querySelector(".cart-close");
+const cartCloseBtn = document.querySelectorAll(".cart-close");
 const addToCartBtn = document.querySelectorAll(".items .add-to-cart");
 const rowItems = document.querySelector(".cart-items  .row-items");
 const items = document.querySelectorAll(".items .item");
 const removeAllDiv = document.querySelector(".remove-all");
+const purchaseBtn = document.querySelector(".purchase-btn");
 
 let counterForCartNumbers = 0;
 let isFirstTime = true;
 // ====================== open and close cart toggle =====================
 function openCart() {
   cart.classList.add("cart-active");
+  // check();
 }
 function closeCart() {
   cart.classList.remove("cart-active");
@@ -22,12 +25,33 @@ function closeCart() {
 function addToCart() {
   let title = this.parentElement.parentElement;
   let dataSet = title.dataset.first;
-
+  purchaseBtn.disabled = false;
   if (dataSet === "false") {
-    alert("this item is already in the list");
+    Swal.fire({
+      toast: true,
+      width: "20rem",
+      position: "top",
+      icon: "warning",
+      title:
+        "<p class = 'warningTitleClass'>This item is already in the list</p>",
+      showConfirmButton: false,
+      timer: 2000
+    });
     return;
   }
   if (dataSet === "true") {
+    Swal.fire({
+      toast: true,
+      width: "20rem",
+      position: "top",
+      icon: "success",
+      title: "Item added to the cart",
+      showConfirmButton: false,
+      timer: 1500,
+      customClass: {
+        title: "successTitleClass"
+      }
+    });
     if (isFirstTime === true) {
       const alertForCart = document.createElement("div");
       alertForCart.className = "item-numbers";
@@ -165,6 +189,65 @@ function updateTotalPrice() {
   }
   totalPrice.innerText = `$${totalForCart}`;
 }
+// =============================== display colors for items ================================
+function displayColors() {
+  const colorOptions = document.querySelectorAll(".items .colors .option");
+  const colors = {
+    grey: "#c5c5c5",
+    darkgreen: "#004F11",
+    darkblue: "#28324C",
+    black: "#000000",
+    white: "#ffffff",
+    red: "#DD2829",
+    yellow: "#FAFF00"
+  };
+  colorOptions.forEach(option => {
+    option.style.background = changeColor(option.dataset.color);
+  });
+
+  function changeColor(color) {
+    return color === "grey"
+      ? colors.grey
+      : color === "darkgreen"
+      ? colors.darkgreen
+      : color === "darkblue"
+      ? colors.darkblue
+      : color === "black"
+      ? colors.black
+      : color === "white"
+      ? colors.white
+      : color === "red"
+      ? colors.red
+      : colors.yellow;
+  }
+}
+
+window.onload = displayColors();
+
+// ======================= purchase button function ===========================
+
+function purchaseClicked() {
+  const cartItems = document.querySelectorAll(".cart-item");
+  if (cartItems.length === 0) {
+    purchaseBtn.disabled = true;
+    return;
+  }
+  Swal.fire({
+    position: "center",
+    icon: "success",
+    title: "Thank you for purchasing !",
+    showConfirmButton: false,
+    timer: 1500,
+    customClass: {
+      title: "successTitleClass"
+    }
+  });
+  removeAllItems();
+  updateTotalPrice();
+}
+
+// =========================== event listeners ====================================
 cartOpenBtn.addEventListener("click", openCart);
-cartCloseBtn.addEventListener("click", closeCart);
+cartCloseBtn.forEach(btn => btn.addEventListener("click", closeCart));
 addToCartBtn.forEach(elm => elm.addEventListener("click", addToCart));
+purchaseBtn.addEventListener("click", purchaseClicked);
