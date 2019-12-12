@@ -184,9 +184,10 @@ body {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background: #000;
   margin: 0 7px;
   cursor: pointer;
+  -webkit-box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
 }
 
 #OS .items .item .info .price {
@@ -236,7 +237,7 @@ body {
   position: absolute;
   top: 0;
   right: 0;
-  height: 100vh;
+  min-height: 100vh;
   width: 35%;
   background: #fff;
   z-index: 1;
@@ -413,12 +414,13 @@ body {
 }
 
 #OS .cart-items .container .purchase {
-  padding: 20px 0;
+  padding: 20px 0 17% 0;
   text-align: center;
 }
 
 #OS .cart-items .container .purchase .purchase-btn {
   width: 70%;
+  outline: none;
   font-family: "Poppins", sans-serif;
   background: #6537af;
   border: none;
@@ -432,6 +434,43 @@ body {
   transition: box-shadow 400ms;
   transition: box-shadow 400ms, -webkit-box-shadow 400ms;
   font-size: 1.1rem;
+}
+
+#OS .cart-items .container .remove-cart {
+  width: 100%;
+  height: 7%;
+  position: absolute;
+  top: 93%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background: rgba(244, 244, 244, 0.6);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+  -webkit-transition: background 300ms;
+  transition: background 300ms;
+}
+
+#OS .cart-items .container .remove-cart img {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+#OS .cart-items .container .remove-cart:hover {
+  background: #ebebeb;
 }
 
 #OS .cart-active {
@@ -474,5 +513,128 @@ body {
 
 #OS .page-trackers svg:hover path {
   opacity: 1;
+}
+
+.successTitleClass {
+  font-family: "Poppins", sans-serif;
+}
+
+.warningTitleClass {
+  font-family: "Poppins", sans-serif;
+  color: #dd2829;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  #OS header .logo {
+    font-size: 2.5rem;
+  }
+  #OS header .menu-bar {
+    width: 17%;
+  }
+  #OS .items .item {
+    -webkit-box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.25);
+  }
+  #OS .cart-items {
+    width: 50%;
+    min-height: 50vh;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  #OS header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #OS header .logo {
+    padding: 15px;
+    font-size: 2.5rem;
+  }
+  #OS header .menu-bar {
+    width: 20%;
+  }
+  #OS .items .item {
+    -webkit-box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.25);
+  }
+  #OS .cart-items {
+    width: 100%;
+    min-height: 50vh;
+  }
+}
+
+@media (max-width: 480px) {
+  #OS header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #OS header .logo {
+    padding: 15px;
+    font-size: 2rem;
+  }
+  #OS header .logo h1 span {
+    display: none;
+  }
+  #OS header .menu-bar {
+    margin-top: 30px;
+    width: 50%;
+  }
+  #OS header .menu-bar .cart,
+  #OS header .menu-bar .nav-bar {
+    width: 25px;
+    height: 25px;
+  }
+  #OS header .menu-bar .cart img,
+  #OS header .menu-bar .nav-bar img {
+    width: 25px;
+    height: 25px;
+  }
+  #OS .items {
+    margin: 150px auto;
+  }
+  #OS .items .item {
+    -webkit-box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.25);
+  }
+  #OS .items .item h2 {
+    font-size: 14px;
+  }
+  #OS .items .item .info .add-to-cart {
+    font-size: 1rem;
+  }
+  #OS .cart-items {
+    width: 100%;
+    min-height: 50vh;
+  }
+  #OS .cart-items .container .row-header h1 {
+    font-size: 26px;
+  }
+  #OS .cart-items .container .row-items .cart-item .qty,
+  #OS .cart-items .container .row-items .cart-item .name,
+  #OS .cart-items .container .row-items .cart-item .price {
+    font-size: 14px;
+  }
+  #OS .cart-items .container .total p {
+    font-size: 18px;
+  }
+  #OS .cart-items .container .remove-all .remove-all-btn {
+    font-size: 8px;
+  }
+  #OS .cart-items .container .purchase .purchase-btn {
+    font-size: 1rem;
+  }
+  #OS .page-trackers span {
+    font-size: 1.3rem;
+  }
 }
 /*# sourceMappingURL=main.css.map */
