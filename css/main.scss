@@ -192,7 +192,6 @@ body {
   // =======================================
 
   .cart-items {
-    // overflow-x: hidden;
     font-family: $content;
     position: absolute;
     top: 0;
@@ -206,7 +205,6 @@ body {
     box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
     transition: transform 400ms;
     transform: translateX(110%);
-    // display: none;
     .container {
       .row-header {
         width: 50%;
@@ -385,8 +383,6 @@ body {
   // =====================
   .cart-active {
     transform: translateX(0%);
-    // right: 0%;
-    // display: block;
   }
   .page-trackers {
     margin: 30px auto;
