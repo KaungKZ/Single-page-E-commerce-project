@@ -7,6 +7,7 @@
     <title>Emerald</title>
     <link rel="stylesheet" href="css/main.css" />
     <script defer src="js/main.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   </head>
   <body>
     <section id="OS">
@@ -32,10 +33,10 @@
           <h2>Adidas men’s running shoe</h2>
           <div class="info">
             <div class="colors">
-              <div class="option"></div>
-              <div class="option"></div>
-              <div class="option"></div>
-              <div class="option"></div>
+              <div class="option" data-color="grey"></div>
+              <div class="option" data-color="darkgreen"></div>
+              <div class="option" data-color="black"></div>
+              <div class="option" data-color="darkblue"></div>
             </div>
             <p class="price"><span>$72</span>$64</p>
             <button class="add-to-cart">Add to cart</button>
@@ -47,8 +48,8 @@
           <h2>Cup</h2>
           <div class="info">
             <div class="colors">
-              <div class="option"></div>
-              <div class="option"></div>
+              <div class="option" data-color="white"></div>
+              <div class="option" data-color="black"></div>
             </div>
             <p class="price">$12</p>
             <button class="add-to-cart">Add to cart</button>
@@ -59,7 +60,7 @@
           <h2>Wired mouse</h2>
           <div class="info">
             <div class="colors">
-              <div class="option"></div>
+              <div class="option" data-color="black"></div>
             </div>
             <p class="price">$7</p>
             <button class="add-to-cart">Add to cart</button>
@@ -70,7 +71,7 @@
           <h2>Wired keyboard for office</h2>
           <div class="info">
             <div class="colors">
-              <div class="option"></div>
+              <div class="option" data-color="black"></div>
             </div>
             <p class="price">$23</p>
             <button class="add-to-cart">Add to cart</button>
@@ -81,8 +82,8 @@
           <h2>Table fan(LG)</h2>
           <div class="info">
             <div class="colors">
-              <div class="option"></div>
-              <div class="option"></div>
+              <div class="option" data-color="white"></div>
+              <div class="option" data-color="black"></div>
             </div>
             <p class="price">$55</p>
             <button class="add-to-cart">Add to cart</button>
@@ -93,10 +94,10 @@
           <h2>Supreme hair razor</h2>
           <div class="info">
             <div class="colors">
-              <div class="option"></div>
-              <div class="option"></div>
-              <div class="option"></div>
-              <div class="option"></div>
+              <div class="option" data-color="red"></div>
+              <div class="option" data-color="darkblue"></div>
+              <div class="option" data-color="yellow"></div>
+              <div class="option" data-color="black"></div>
             </div>
             <p class="price">$219</p>
             <button class="add-to-cart">Add to cart</button>
@@ -148,6 +149,9 @@
           </div>
           <div class="purchase">
             <button class="purchase-btn">Purchase</button>
+          </div>
+          <div class="remove-cart cart-close">
+            <img src="images/close.svg" alt="" />
           </div>
         </div>
       </div>
