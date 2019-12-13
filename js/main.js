@@ -8,6 +8,9 @@ const rowItems = document.querySelector(".cart-items  .row-items");
 const items = document.querySelectorAll(".items .item");
 const removeAllDiv = document.querySelector(".remove-all");
 const purchaseBtn = document.querySelector(".purchase-btn");
+const cartForPh = document.querySelector(".cart-for-smallsizes");
+const alertForCart = cartForPh.querySelector(".alert");
+const header = document.querySelector("header");
 
 let counterForCartNumbers = 0;
 let isFirstTime = true;
@@ -40,6 +43,7 @@ function addToCart() {
     return;
   }
   if (dataSet === "true") {
+    alertForCart.classList.add("alert-active");
     Swal.fire({
       toast: true,
       width: "20rem",
@@ -68,6 +72,7 @@ function addToCart() {
     const removeAllBtn = removeAllDiv.querySelector(".remove-all-btn");
     const dataSet = this.parentElement.parentElement;
     const cartItemNumber = cartOpenBtn.querySelector(".item-numbers");
+
     removeAllBtn.style.display = "block";
     counterForCartNumbers++;
     if (counterForCartNumbers !== 0) cartItemNumber.style.display = "flex";
@@ -142,6 +147,7 @@ function removeAllItems() {
 function forRemoveFunctions() {
   const cartItemNumber = cartOpenBtn.querySelector(".item-numbers");
   if (counterForCartNumbers === 0) {
+    alertForCart.classList.remove("alert-active");
     cartItemNumber.style.display = "none";
     const removeAllBtn = removeAllDiv.querySelector(".remove-all-btn");
     removeAllBtn.style.display = "none";
@@ -230,6 +236,7 @@ function purchaseClicked() {
   const cartItems = document.querySelectorAll(".cart-item");
   if (cartItems.length === 0) {
     purchaseBtn.disabled = true;
+    alertForCart.classList.remove("alert-active");
     return;
   }
   Swal.fire({
@@ -246,8 +253,25 @@ function purchaseClicked() {
   updateTotalPrice();
 }
 
+// cart btn for small sizes
+
+const options = {
+  rootMargin: "0px 0px 0px 0px"
+};
+const observer = new IntersectionObserver(function(entries, observer) {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) {
+      cartForPh.classList.add("active-cart");
+    } else {
+      cartForPh.classList.remove("active-cart");
+    }
+  });
+}, options);
+
+observer.observe(header);
 // =========================== event listeners ====================================
 cartOpenBtn.addEventListener("click", openCart);
+cartForPh.addEventListener("click", openCart);
 cartCloseBtn.forEach(btn => btn.addEventListener("click", closeCart));
 addToCartBtn.forEach(elm => elm.addEventListener("click", addToCart));
 purchaseBtn.addEventListener("click", purchaseClicked);
