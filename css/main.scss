@@ -47,7 +47,7 @@ $light-header: #454545;
     .menu-bar {
       width: 13%;
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
       .cart {
         position: relative;
@@ -74,15 +74,7 @@ $light-header: #454545;
           justify-content: center;
         }
       }
-      .nav-bar {
-        cursor: pointer;
-        width: 45px;
-        height: 45px;
-        img {
-          width: 45px;
-          height: 45px;
-        }
-      }
+
       .cart-for-smallsizes {
         position: fixed;
         top: 100px;
@@ -506,12 +498,15 @@ $light-header: #454545;
     header {
       flex-direction: column;
       align-items: center;
+
       .logo {
         padding: 15px;
         font-size: 2.5rem;
       }
       .menu-bar {
         width: 30%;
+        justify-content: center;
+        margin-top: 30px;
 
         .active-cart {
           opacity: 1;
@@ -523,10 +518,13 @@ $light-header: #454545;
         }
       }
     }
-    .items .item {
-      -webkit-box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.25);
-      -moz-box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.25);
-      box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.25);
+    .items {
+      gap: 6rem;
+      .item {
+        -webkit-box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.25);
+        -moz-box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.25);
+        box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.25);
+      }
     }
     .cart-items {
       width: 100%;
@@ -549,6 +547,7 @@ $light-header: #454545;
     header {
       flex-direction: column;
       align-items: center;
+
       .logo {
         padding: 15px;
         font-size: 2rem;
@@ -562,6 +561,7 @@ $light-header: #454545;
         width: 40%;
         position: -webkit-sticky;
         position: sticky;
+        justify-content: center;
         top: 0;
 
         .cart .item-numbers {
@@ -590,7 +590,7 @@ $light-header: #454545;
     }
     .items {
       margin: 150px auto;
-      gap: 6rem;
+      gap: 5rem;
       .item {
         -webkit-box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.25);
         -moz-box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.25);
