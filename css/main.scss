@@ -63,11 +63,11 @@ $light-header: #454545;
           top: -30%;
           right: calc(0% - 15px);
           color: #fff;
-          width: 12px;
-          height: 12px;
+          width: 15px;
+          height: 15px;
           background: red;
           border-radius: 50%;
-          font-size: 8px;
+          font-size: 12px;
           font-family: $content;
           display: flex;
           align-items: center;
@@ -563,6 +563,12 @@ $light-header: #454545;
         position: -webkit-sticky;
         position: sticky;
         top: 0;
+
+        .cart .item-numbers {
+          font-size: 8px;
+          width: 12px;
+          height: 12px;
+        }
         .active-cart {
           opacity: 1;
           pointer-events: all;
