@@ -132,7 +132,7 @@ function itemRemoved(removeBtn, dataSet) {
 
 function removeAllItems() {
   const cartItemsContainer = document.querySelector(".cart-items .row-items");
-
+  cart.classList.remove("cart-active");
   items.forEach(item => (item.dataset.first = "true"));
 
   while (cartItemsContainer.firstChild) {
@@ -269,6 +269,7 @@ const observer = new IntersectionObserver(function(entries, observer) {
 }, options);
 
 observer.observe(header);
+
 // =========================== event listeners ====================================
 cartOpenBtn.addEventListener("click", openCart);
 cartForPh.addEventListener("click", openCart);
